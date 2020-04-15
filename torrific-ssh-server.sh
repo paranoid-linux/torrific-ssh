@@ -96,7 +96,8 @@ Port number Tor listens on and forwards to '--service-port'
   --service-port    --target-port=${_service_port}
 Port service listens on and is forwarded to from '--tor-port'
 
-  --client-names=${_client_names:-lamb,spam}
+  --client-names    --clients=${_client_names:-lamb,spam}
+Required, comma seperated list of authorized clients
 
   ${_service_name}
 Directory name for service under '--tor-lib-dir'
@@ -181,7 +182,7 @@ _acceptable_args=(
     '--tor-lib-dir|--tor-lib|--lib-dir:path'
     '--tor-port|--virt-port:alpha_numeric'
     '--service-port|--target-port:alpha_numeric'
-    '--client-names:list'
+    '--client-names|--clients:list'
     '--service-name:posix-nil'
 )
 argument_parser '_passed_args' '_acceptable_args'
@@ -201,6 +202,10 @@ elif ((_license)); then
 elif ((_notes)); then
     notes
     exit "${_exit_status:-0}"
+elif ! ((${#_client_names})); then
+  printf >&2 'Missing required parameter(s), please review usage before trying again...\n'
+  usage
+  exit "1"
 fi
 
 
