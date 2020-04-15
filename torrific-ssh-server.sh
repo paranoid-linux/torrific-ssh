@@ -182,7 +182,7 @@ _acceptable_args=(
     '--tor-lib-dir|--tor-lib|--lib-dir:path'
     '--tor-port|--virt-port:alpha_numeric'
     '--service-port|--target-port:alpha_numeric'
-    '--client-names|--clients:list'
+    '--client-names|--clients|--client:list'
     '--service-name:posix-nil'
 )
 argument_parser '_passed_args' '_acceptable_args'
