@@ -214,6 +214,7 @@ systemctl restart tor.service || {
 }
 
 
+su --login "${USER}" --shell /bin/bash <<EOC
 [[ -d "${_ssh_config_path%/*}" ]] || {
   mkdir -vp "${_ssh_config_path%/*}"
 }
@@ -228,3 +229,4 @@ Host ${_ssh_host:-tor-$_ssh_user_name}
    Port ${_ssh_port}
    User ${_ssh_user_name}
 EOF
+EOC
