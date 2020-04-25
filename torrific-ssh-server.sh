@@ -161,7 +161,7 @@ HiddenServiceAuthorizeClient stealth ssh-tor-client
 
 
 ## 1. After Tor service restarts 'ssh-tor-client' may be found via...
-grep 'ssh-tor-client' /var/lib/tor/ssh_server/hostname
+sudo grep 'ssh-tor-client' /var/lib/tor/ssh_server/hostname
 EOL
 }
 
@@ -240,6 +240,7 @@ systemctl restart tor.service || {
         print "HidServAuth", $1, $2, "#", $5
       } else {
         print "Cannot find", _names[_key], "within hidden service hostname file"
+        exit 1
       }
     }
   }' "${_tor_lib_dir}/${_service_name}/hostname"
