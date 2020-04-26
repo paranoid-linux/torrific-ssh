@@ -101,6 +101,14 @@ git clone --recurse-submodules git@github.com:paranoid-linux/torrific-ssh.git
 ```
 
 
+Change current working directory...
+
+
+```Bash
+cd torrific-ssh
+```
+
+
 Use `-h` or `--help` option to list available command-line parameters...
 
 
@@ -114,6 +122,14 @@ On the server configure Tor hidden service for SSH via `torrific-ssh-server.sh` 
 
 ```Bash
 sudo ./torrific-ssh-server.sh --client='pi'
+```
+
+
+> Note, setting up the server within a Docker container is now possible via...
+
+
+```Bash
+docker run --name torrific-ssh --client 'pi'
 ```
 
 
