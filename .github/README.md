@@ -138,9 +138,9 @@ On each client device configure via `torrific-ssh-client.sh` script...
 
 ```Bash
 sudo ./torrific-ssh-client.sh --host-name="yourgeneratedaddress.onion"\
-  --auth="S0meLet7er5AndNumbers"\
-  --identity-file='~/.ssh/id_rsa'\
-  'pi'
+                              --auth="S0meLet7er5AndNumbers"\
+                              --identity-file='~/.ssh/id_rsa'\
+                              'pi'
 ```
 
 
